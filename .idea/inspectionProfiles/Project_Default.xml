@@ -1,0 +1,218 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="AnonymousInnerClassMayBeStatic" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="ArraysAsListWithZeroOrOneArgument" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="AssignmentToForLoopParameter" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="m_checkForeachParameters" value="true" />
+    </inspection_tool>
+    <inspection_tool class="AssignmentToMethodParameter" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoreTransformationOfOriginalParameter" value="false" />
+    </inspection_tool>
+    <inspection_tool class="AssignmentToNull" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="BlockMarkerComments" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="BooleanParameter" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="onlyReportMultiple" value="true" />
+    </inspection_tool>
+    <inspection_tool class="BreakStatementWithLabel" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ClassComplexity" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="m_limit" value="80" />
+    </inspection_tool>
+    <inspection_tool class="Convert2streamapi" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="EnhancedSwitchMigration" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="EnumerationCanBeIteration" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="EqualsCalledOnEnumConstant" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="FallthruInSwitchStatement" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="FeatureEnvy" enabled="true" level="INFORMATION" enabled_by_default="true">
+      <option name="ignoreTestCases" value="false" />
+    </inspection_tool>
+    <inspection_tool class="ForgottenDebugOutputInspection" enabled="true" level="ERROR" enabled_by_default="true">
+      <option name="configuration">
+        <list>
+          <option value="\Codeception\Util\Debug::debug" />
+          <option value="\Codeception\Util\Debug::pause" />
+          <option value="\Doctrine\Common\Util\Debug::dump" />
+          <option value="\Doctrine\Common\Util\Debug::export" />
+          <option value="\Illuminate\Support\Debug\Dumper::dump" />
+          <option value="\Symfony\Component\Debug\Debug::enable" />
+          <option value="\Symfony\Component\Debug\DebugClassLoader::enable" />
+          <option value="\Symfony\Component\Debug\ErrorHandler::register" />
+          <option value="\Symfony\Component\Debug\ExceptionHandler::register" />
+          <option value="\TYPO3\CMS\Core\Utility\DebugUtility::debug" />
+          <option value="\Zend\Debug\Debug::dump" />
+          <option value="\Zend\Di\Display\Console::export" />
+          <option value="dd" />
+          <option value="debug_print_backtrace" />
+          <option value="debug_zval_dump" />
+          <option value="dpm" />
+          <option value="dpq" />
+          <option value="dsm" />
+          <option value="dvm" />
+          <option value="error_log" />
+          <option value="kpr" />
+          <option value="phpinfo" />
+          <option value="print_r" />
+          <option value="var_dump" />
+          <option value="var_export" />
+          <option value="xdebug_break" />
+          <option value="xdebug_call_class" />
+          <option value="xdebug_call_file" />
+          <option value="xdebug_call_function" />
+          <option value="xdebug_call_line" />
+          <option value="xdebug_code_coverage_started" />
+          <option value="xdebug_debug_zval" />
+          <option value="xdebug_debug_zval_stdout" />
+          <option value="xdebug_dump_superglobals" />
+          <option value="xdebug_enable" />
+          <option value="xdebug_get_code_coverage" />
+          <option value="xdebug_get_collected_errors" />
+          <option value="xdebug_get_declared_vars" />
+          <option value="xdebug_get_function_stack" />
+          <option value="xdebug_get_headers" />
+          <option value="xdebug_get_monitored_functions" />
+          <option value="xdebug_get_profiler_filename" />
+          <option value="xdebug_get_stack_depth" />
+          <option value="xdebug_get_tracefile_name" />
+          <option value="xdebug_is_enabled" />
+          <option value="xdebug_memory_usage" />
+          <option value="xdebug_peak_memory_usage" />
+          <option value="xdebug_print_function_stack" />
+          <option value="xdebug_start_code_coverage" />
+          <option value="xdebug_start_error_collection" />
+          <option value="xdebug_start_function_monitor" />
+          <option value="xdebug_start_trace" />
+          <option value="xdebug_stop_code_coverage" />
+          <option value="xdebug_stop_error_collection" />
+          <option value="xdebug_stop_function_monitor" />
+          <option value="xdebug_stop_trace" />
+          <option value="xdebug_time_index" />
+          <option value="xdebug_var_dump" />
+        </list>
+      </option>
+      <option name="migratedIntoUserSpace" value="true" />
+    </inspection_tool>
+    <inspection_tool class="IncrementDecrementUsedAsExpression" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="InterfaceMayBeAnnotatedFunctional" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="JpaAttributeMemberSignatureInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="JpaObjectClassSignatureInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="LiteralAsArgToStringEquals" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="NestedSwitchStatement" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="NestingDepth" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="m_limit" value="4" />
+    </inspection_tool>
+    <inspection_tool class="ObsoleteCollection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoreRequiredObsoleteCollectionTypes" value="true" />
+    </inspection_tool>
+    <inspection_tool class="OptionalContainsCollection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="OverlyLongLambda" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ParameterizedParametersStaticCollection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PublicMethodNotExposedInInterface" enabled="false" level="WEAK WARNING" enabled_by_default="false">
+      <option name="ignorableAnnotations">
+        <value />
+      </option>
+      <option name="onlyWarnIfContainingClassImplementsAnInterface" value="false" />
+    </inspection_tool>
+    <inspection_tool class="RedundantFieldInitialization" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="ReplaceAssignmentWithOperatorAssignment" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoreLazyOperators" value="true" />
+      <option name="ignoreObscureOperators" value="false" />
+    </inspection_tool>
+    <inspection_tool class="ReturnOfInnerClass" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="ReturnSeparatedFromComputation" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="ReuseOfLocalVariable" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="SecurityAdvisoriesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="optionConfiguration">
+        <list>
+          <option value="barryvdh/laravel-debugbar" />
+          <option value="behat/behat" />
+          <option value="brianium/paratest" />
+          <option value="codeception/codeception" />
+          <option value="codedungeon/phpunit-result-printer" />
+          <option value="composer/composer" />
+          <option value="doctrine/coding-standard" />
+          <option value="filp/whoops" />
+          <option value="friendsofphp/php-cs-fixer" />
+          <option value="humbug/humbug" />
+          <option value="infection/infection" />
+          <option value="jakub-onderka/php-parallel-lint" />
+          <option value="johnkary/phpunit-speedtrap" />
+          <option value="kalessil/production-dependencies-guard" />
+          <option value="mikey179/vfsStream" />
+          <option value="mockery/mockery" />
+          <option value="mybuilder/phpunit-accelerator" />
+          <option value="orchestra/testbench" />
+          <option value="pdepend/pdepend" />
+          <option value="phan/phan" />
+          <option value="phing/phing" />
+          <option value="phpcompatibility/php-compatibility" />
+          <option value="phpmd/phpmd" />
+          <option value="phpro/grumphp" />
+          <option value="phpspec/phpspec" />
+          <option value="phpspec/prophecy" />
+          <option value="phpstan/phpstan" />
+          <option value="phpunit/phpunit" />
+          <option value="povils/phpmnd" />
+          <option value="roave/security-advisories" />
+          <option value="satooshi/php-coveralls" />
+          <option value="sebastian/phpcpd" />
+          <option value="slevomat/coding-standard" />
+          <option value="spatie/phpunit-watcher" />
+          <option value="squizlabs/php_codesniffer" />
+          <option value="sstalle/php7cc" />
+          <option value="symfony/debug" />
+          <option value="symfony/maker-bundle" />
+          <option value="symfony/phpunit-bridge" />
+          <option value="symfony/var-dumper" />
+          <option value="vimeo/psalm" />
+          <option value="wimg/php-compatibility" />
+          <option value="wp-coding-standards/wpcs" />
+          <option value="yiisoft/yii2-coding-standards" />
+          <option value="yiisoft/yii2-debug" />
+          <option value="yiisoft/yii2-gii" />
+          <option value="zendframework/zend-coding-standard" />
+          <option value="zendframework/zend-debug" />
+          <option value="zendframework/zend-test" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="SimplifiableAnnotation" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="StaticCollection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="m_ignoreWeakCollections" value="true" />
+    </inspection_tool>
+    <inspection_tool class="StringConcatenationInLoops" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="TestOnlyProblems" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="TooBroadCatch" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="TooBroadScope" enabled="true" level="INFORMATION" enabled_by_default="true">
+      <scope name="Production" level="WEAK WARNING" enabled="true">
+        <option name="m_allowConstructorAsInitializer" value="true" />
+        <option name="m_onlyLookAtBlocks" value="false" />
+      </scope>
+      <option name="m_allowConstructorAsInitializer" value="true" />
+      <option name="m_onlyLookAtBlocks" value="false" />
+    </inspection_tool>
+    <inspection_tool class="TooBroadThrows" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="TypeParameterExtendsFinalClass" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="UnnecessaryConstantArrayCreationExpression" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="UnnecessaryConstructor" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="UnnecessaryFinalOnLocalVariableOrParameter" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="UnnecessaryLocalVariable" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="m_ignoreImmediatelyReturnedVariables" value="false" />
+      <option name="m_ignoreAnnotatedVariables" value="false" />
+    </inspection_tool>
+    <inspection_tool class="UnnecessaryThis" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoreAssignments" value="true" />
+    </inspection_tool>
+    <inspection_tool class="WeakerAccess" enabled="true" level="INFORMATION" enabled_by_default="true">
+      <scope name="Production" level="WEAK WARNING" enabled="true">
+        <option name="SUGGEST_PACKAGE_LOCAL_FOR_MEMBERS" value="false" />
+        <option name="SUGGEST_PACKAGE_LOCAL_FOR_TOP_CLASSES" value="false" />
+        <option name="SUGGEST_PRIVATE_FOR_INNERS" value="false" />
+        <option name="SUGGEST_FOR_CONSTANTS" value="false" />
+      </scope>
+      <option name="SUGGEST_PACKAGE_LOCAL_FOR_MEMBERS" value="false" />
+      <option name="SUGGEST_PACKAGE_LOCAL_FOR_TOP_CLASSES" value="false" />
+      <option name="SUGGEST_PRIVATE_FOR_INNERS" value="false" />
+      <option name="SUGGEST_FOR_CONSTANTS" value="false" />
+    </inspection_tool>
+  </profile>
+</component>
