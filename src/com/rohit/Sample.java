@@ -1,9 +1,11 @@
 package com.rohit;
 
-import java.lang.reflect.Array;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.List.of;
 import static java.util.stream.Collectors.*;
@@ -179,7 +181,8 @@ public class Sample {
          *
          * Write a Java 8 program to check if a given string is a palindrome using the stream API and lambda expressions.
          */
-      //  notImplementedYet();
+
+        checkIsTheStringPalindrome();
 
         /**
          * Find strings in a list that start with a number
@@ -210,18 +213,115 @@ public class Sample {
          */
         firstRepeatedCharacter();
 
+        /**
+         * Find the first non-repeated character in a string
+         *
+         * Write a Java 8 program to find the first non-repeated character in a string.
+         */
+        firstNonRepeatingCharacter();
+
+        /**
+         * Generate the Fibonacci series
+         *
+         * Write a Java 8 program to generate the Fibonacci series.
+         */
+        generateFibonacciSeries();
+
+        /**
+         * Print the first 10 odd numbers
+         *
+         * Write a Java 8 program to print the first 10 odd numbers.
+         */
+        firstTenOddNumbers();
+
+        /**
+         * Get the last element of an array
+         *
+         * Write a Java 8 program to get the last element of an array.
+         */
+
+        lastElementInTheArray();
+
+        /**
+         * Calculate the age of a person in years
+         *
+         * Write a Java 8 program to calculate the age of a person in years given their birthday.
+         */
+        calculatePersonAgeInYear();
+    }
+
+    private static void calculatePersonAgeInYear() {
+        LocalDate birthDate = LocalDate.of(1998, 8, 17);
+        LocalDate currentDate = LocalDate.now();
+        int age = Period.between(birthDate, currentDate).getYears();
+        System.out.println("Age of the person is: " + age);
+    }
+
+    private static void lastElementInTheArray() {
+        int[] intArray = {0,1,2,3,4,5};
+        Integer lastElementInTheArray = Arrays.stream(intArray)
+                .boxed()
+                .reduce((first, second) -> second).orElse(-1);
+        System.out.println("\nlast elements in the array " + lastElementInTheArray);
+    }
+
+    private static void firstTenOddNumbers() {
+        Stream.iterate(1,i->i+2)
+                .limit(10)
+                .forEach(System.out::print);
+    }
+
+    private static void generateFibonacciSeries() {
+        Stream.iterate(new int[]{0,1},t->new int[]{ t[1], t[0]+ t[1] })
+                .limit(10)
+                .map(t->t[0])
+                .forEach(System.out::print);
+
+        Function<int[], List<Integer>> intArraytoListOFInt = array -> Arrays.stream(array).boxed()
+                .collect(toList());
+        List<Integer> collect = Stream.iterate(new int[]{0, 1}, t -> new int[]{t[1], t[0] + t[1]})
+                .limit(10)
+                .map(intArraytoListOFInt)
+                .flatMap(List::stream)
+                .distinct()
+                .collect(toList());
+        System.out.println(collect);
+    }
+
+    private static void firstNonRepeatingCharacter() {
+        String tempStr = "rohitrohi";
+        Function<Map<Character, Long>, Character> getFirstNonRepeatedCharacter =
+                characterLongMap -> characterLongMap.entrySet()
+                .stream()
+                .filter(map -> map.getValue() == 1)
+                .map(Map.Entry::getKey)
+                .findFirst().orElse(Character.MAX_VALUE);
+
+        System.out.println( " 1st non repeating character "+tempStr.chars()
+                .mapToObj(ch -> (char) ch)
+                .collect(collectingAndThen(groupingBy(Function.identity(), counting()),
+                        getFirstNonRepeatedCharacter)));
+    }
+
+    private static void checkIsTheStringPalindrome() {
+        String str = "momd";
+        String temp = str.replaceAll("\\s+", "").toLowerCase();
+        System.out.println("is palindrome string " +IntStream.range(0, temp.length() / 2)
+                .noneMatch(i -> temp.charAt(i) != temp.charAt(temp.length() - i - 1)));
     }
 
     private static void firstRepeatedCharacter() {
         String word = "rohttoh";
         System.out.println("original String " + word);
+        Function<Map<Character, Long>, Character> getFirstKey = characterLongMap -> characterLongMap.entrySet()
+                .stream().filter(entry -> entry.getValue() > 1)
+                .findFirst().map(Map.Entry::getKey)
+                .orElse(Character.MAX_VALUE);
+
         Character firstRepeatedCharacter = word.chars()
                 .mapToObj(ch -> (char) ch)
-                .collect(collectingAndThen(groupingBy(Function.identity(), counting()),
-                        characterLongMap -> characterLongMap.entrySet()
-                                .stream().filter(entry -> entry.getValue() > 1)
-                                .findFirst().map(Map.Entry::getKey)
-                                .orElse(Character.MAX_VALUE)));
+                .collect(collectingAndThen(groupingBy(Function.identity(), counting()), getFirstKey));
+
         System.out.println("first repeated character " + firstRepeatedCharacter);
     }
 
@@ -246,13 +346,14 @@ public class Sample {
 
         System.out.println("maxed Elements " + duplicateElements);
 
+        Function<Map<Integer, Long>, List<Integer>> getKeys = integerLongMap -> integerLongMap.entrySet()
+                .stream()
+                .filter(e -> e.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .toList();
         List<Integer> extractDuplicateElements = duplicateElements.stream()
                 .collect(collectingAndThen(groupingBy(Function.identity(), counting()),
-                        integerLongMap -> integerLongMap.entrySet()
-                                .stream()
-                                .filter(e -> e.getValue() > 1)
-                                .map(Map.Entry::getKey)
-                                .toList()));
+                        getKeys));
         System.out.println("extract duplicates elements from " + extractDuplicateElements);
     }
 
@@ -265,10 +366,6 @@ public class Sample {
                  .filter(word -> Character.isDigit(word.charAt(0)))
                  .toList();
         System.out.println("strings started with a number " + stringStartNumber);
-    }
-
-    private static void notImplementedYet() {
-        throw new UnsupportedOperationException("method not implemented");
     }
 
     private static void mostRepeatedElement() {
