@@ -1,4 +1,4 @@
-# Java 8 Interview Sample Coding Questions [COMPLETED]
+# Java 8 Interview Sample Coding Questions
 
 This repository contains sample Java 8 coding questions that can be used for interview preparation. Each question focuses on a specific programming concept or problem-solving technique using Java 8 features.
 
