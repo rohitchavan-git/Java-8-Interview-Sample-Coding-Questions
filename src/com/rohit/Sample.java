@@ -7,6 +7,7 @@ import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static java.util.Comparator.reverseOrder;
 import static java.util.List.of;
 import static java.util.stream.Collectors.*;
 
@@ -272,6 +273,7 @@ public class Sample {
     }
 
     private static void generateFibonacciSeries() {
+
         Stream.iterate(new int[]{0,1},t->new int[]{ t[1], t[0]+ t[1] })
                 .limit(10)
                 .map(t->t[0])
@@ -290,17 +292,11 @@ public class Sample {
 
     private static void firstNonRepeatingCharacter() {
         String tempStr = "rohitrohi";
-        Function<Map<Character, Long>, Character> getFirstNonRepeatedCharacter =
-                characterLongMap -> characterLongMap.entrySet()
-                .stream()
-                .filter(map -> map.getValue() == 1)
-                .map(Map.Entry::getKey)
-                .findFirst().orElse(Character.MAX_VALUE);
+        System.out.println (Arrays.stream (tempStr.split (""))
+                .filter (str -> tempStr.indexOf (str) == tempStr.lastIndexOf (str))
+                .findFirst ()
+                .orElse (""));
 
-        System.out.println( " 1st non repeating character "+tempStr.chars()
-                .mapToObj(ch -> (char) ch)
-                .collect(collectingAndThen(groupingBy(Function.identity(), counting()),
-                        getFirstNonRepeatedCharacter)));
     }
 
     private static void checkIsTheStringPalindrome() {
@@ -312,33 +308,20 @@ public class Sample {
 
     private static void firstRepeatedCharacter() {
         String word = "rohttoh";
-        System.out.println("original String " + word);
-        Function<Map<Character, Long>, Character> getFirstKey = characterLongMap -> characterLongMap.entrySet()
-                .stream().filter(entry -> entry.getValue() > 1)
-                .findFirst().map(Map.Entry::getKey)
-                .orElse(Character.MAX_VALUE);
-
-        Character firstRepeatedCharacter = word.chars()
-                .mapToObj(ch -> (char) ch)
-                .collect(collectingAndThen(groupingBy(Function.identity(), counting()), getFirstKey));
-
-        System.out.println("first repeated character " + firstRepeatedCharacter);
+        System.out.println (Arrays.stream (word.split (""))
+                .filter (str -> word.indexOf (str) != word.lastIndexOf (str))
+                .findFirst ().orElse (""));
     }
 
     private static void duplicateCharactersInString() {
         String word = "rohttoh";
-        System.out.println("original String " + word);
-        Function<Map<Character, Long>, List<Character>> getDuplicateCharacters = stringLongMap -> stringLongMap.entrySet()
-                .stream()
-                .filter(entry -> entry.getValue() > 1)
-                .map(Map.Entry::getKey)
-                .toList();
-        List<Character> duplicateCharactersInString =  word.chars()
-                .mapToObj(ch->(char)ch)
-                .collect(collectingAndThen(
-                        groupingBy(Function.identity(), counting()),
-                        getDuplicateCharacters));
-        System.out.println(duplicateCharactersInString);
+        System.out.println ("original String " + word);
+
+
+        System.out.println (Arrays.stream (word.split (""))
+        .filter (str -> word.indexOf (str) != word.lastIndexOf (str))
+        .map (str -> str.charAt (0))
+        .collect (toList ()));
     }
 
     private static void extractDuplicateElements() {
@@ -346,14 +329,13 @@ public class Sample {
 
         System.out.println("maxed Elements " + duplicateElements);
 
-        Function<Map<Integer, Long>, List<Integer>> getKeys = integerLongMap -> integerLongMap.entrySet()
-                .stream()
-                .filter(e -> e.getValue() > 1)
-                .map(Map.Entry::getKey)
-                .toList();
         List<Integer> extractDuplicateElements = duplicateElements.stream()
-                .collect(collectingAndThen(groupingBy(Function.identity(), counting()),
-                        getKeys));
+                .filter(element -> duplicateElements.indexOf(element)
+                        != duplicateElements.lastIndexOf(element))
+                .distinct()
+                .collect(toList());
+
+
         System.out.println("extract duplicates elements from " + extractDuplicateElements);
     }
 
@@ -432,7 +414,7 @@ public class Sample {
     private static void secondLargestNumberFromList() {
         List<Integer> oneToTen = of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         Integer secondLarge = oneToTen.stream()
-                .sorted((x, y) -> Integer.compare(y, x))
+                .sorted(reverseOrder())
                 .skip(1)
                 .findFirst()
                 .orElse(Integer.MAX_VALUE);
@@ -462,26 +444,18 @@ public class Sample {
 
     }
 
-    private static boolean isAnagram() {
-        String string1 = "listen";
-        String string2 = "silent";
-        Map<Character, Long> frequency1 = string1.chars()
-                .mapToObj(ch -> (char) ch)
-                .collect(groupingBy(Function.identity(), counting()));
-        Map<Character, Long> frequency2 = string2.chars()
-                .mapToObj(ch -> (char) ch)
-                .collect(groupingBy(Function.identity(), counting()));
+    private static void isAnagram() {
+        char[] splitIt = "listen".toCharArray();
+        char[] splitIt2 = "silent".toCharArray();
 
-        for (Map.Entry<Character, Long> entry : frequency1.entrySet()) {
-            Character character = entry.getKey();
-            Long aLong = entry.getValue();
-            if (!frequency2.get(character).equals(aLong)) {
-                System.out.println("not a anagram");
-                return false;
-            }
+        Arrays.sort(splitIt);
+        Arrays.sort(splitIt2);
+        if (Arrays.equals(splitIt,splitIt2)) {
+            System.out.println("is Anagram");
+        }else{
+            System.out.println("is not anagram");
         }
-        System.out.println("is anagram");
-        return true;
+
     }
 
     private static void min3max3() {
@@ -562,6 +536,12 @@ public class Sample {
                 .sorted((x, y) -> Integer.compare(y, x)) // reverse sort
                 .collect(toList());
         System.out.println(sortInReverse);
+
+        List<Integer> sortListReverse = randomNumbers.stream()
+                .sorted(reverseOrder())
+                .collect(toList());
+        System.out.println(sortListReverse);
+
     }
 
     private static void wordFrequency() {
@@ -582,6 +562,11 @@ public class Sample {
                 .mapToObj(ch -> (char) ch)
                 .collect(groupingBy(Function.identity(), counting()));
         System.out.println(collected);
+
+        Map<String, Integer> countCharacter = Arrays.stream(name.split(""))
+                .collect(groupingBy(Function.identity(),
+                        collectingAndThen(counting(), Long::intValue)));
+        System.out.println(countCharacter);
     }
 
     private static void removeDuplicateFromList() {
@@ -595,6 +580,13 @@ public class Sample {
                 = oneToTen.stream()
                 .collect(toSet());
         System.out.println(removeDuplicateWithoutOrder);
+
+        List<Integer> uniqueElement = oneToTen
+                .stream()
+                .filter(number -> oneToTen.indexOf(number)
+                        == oneToTen.lastIndexOf(number))
+                .collect(toList());
+        System.out.println(uniqueElement);
     }
 
     private static void separationOfEvenOddNumberInList() {
