@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -249,6 +250,13 @@ public class Sample {
          * Write a Java 8 program to calculate the age of a person in years given their birthday.
          */
         calculatePersonAgeInYear();
+        
+        /**
+         * Extract unique matching strings from String array
+         * 
+         * Write a Java 8 program to extract Unique String starting with "#" from the String array Using Java Streams 
+         */
+        extractUniqueStringStartingWithHashtag();
     }
 
     private static void calculatePersonAgeInYear() {
@@ -607,4 +615,19 @@ public class Sample {
 
         System.out.println(evenAddOddSeparation);
     }
+    
+    private static void extractUniqueStringStartingWithHashtag() {
+	       String[] input = new String[]{
+	                "This JEP is #mainly for scientific #applications",
+	                "and it makes #floating-point operations consistently #strict.",
+	                "The default #floating-point operations are #strict or strictfp,"
+	        };
+	       
+	       List<String> output = Arrays.stream(input).flatMap(line -> Arrays.stream(line.split(" ")))
+						       					   	 .filter(word -> word.startsWith("#"))
+						       					   	 .map(str ->  "#" + str.substring(1).replaceAll("^\\W+|\\W+$", ""))
+						       					   	 .distinct()
+						       					   	 .collect(Collectors.toList());
+	       output.forEach(System.out::println);
+	}
 }
